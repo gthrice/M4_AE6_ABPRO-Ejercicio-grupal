@@ -1,0 +1,61 @@
+Ejercicio grupal
+Contexto
+
+Un grupo de emprendedores ha comenzado un negocio de venta de ropa online denominado "Moda Xpress". 
+La tienda vende ropa de temporada y cada artículo tiene información específica, como el nombre del producto,
+precio, cantidad disponible, y tamaño. Actualmente, gestionan el inventario a mano en hojas de cálculo,
+lo que a veces resulta confuso y propenso a errores. Debido a la expansión del negocio,
+decidieron implementar un sistema para administrar este inventario,
+donde se lean y escriban los datos directamente en archivos de texto.
+
+El sistema debe permitir:
+
+Registrar nuevos productos en el inventario.
+Consultar el inventario completo.
+Leer los datos de un producto específico.
+Modificar los datos de un producto ya existente.
+Eliminar productos del inventario.
+Visualizar los detalles de un producto específico.
+Crear backups de los datos de inventario.
+
+
+
+Requerimiento
+
+Cada grupo debe desarrollar un programa en Python que simule el sistema
+de gestión de inventarios utilizando archivos de texto. 
+El archivo de inventario será un archivo llamado inventario.txt,
+y el sistema debe cumplir con las siguientes funcionalidades:
+
+Apertura de archivo en modo lectura: Leer todo el inventario.
+Apertura de archivo en modo escritura: Escribir datos de nuevos productos.
+Apertura de archivo en modo "append": Agregar productos sin eliminar los datos existentes.
+Apertura de archivo en modo lectura y escritura: Modificar y consultar productos existentes en el inventario.
+Obtener atributos del archivo: Ver información sobre el archivo como el tamaño y la fecha de última modificación.
+Leer un producto específico: Buscar por nombre o ID y mostrar los detalles del producto.
+Modificar el nombre de un producto: Cambiar el nombre de un artículo en el inventario.
+Eliminar un producto: Eliminar un producto del inventario.
+Cerrar archivos: Asegurarse de cerrar correctamente el archivo después de cada operación.
+
+Contenido del archivo a utilizar:
+
+Camiseta Azul, 15 USD, 50 unidades, M
+Pantalón Negro, 25 USD, 30 unidades, L
+Chaqueta Roja, 40 USD, 20 unidades, S
+Zapatillas Deportivas, 60 USD, 10 unidades, 42
+Gorra Blanca, 10 USD, 100 unidades, Talla Única
+ 
+Instrucciones del Código
+
+El código debe permitir que los miembros del grupo interactúen de manera grupal para compartir ideas y trabajar en conjunto para implementar las funcionalidades requeridas. Deben dividir el código en funciones y trabajar colaborativamente para lograr que todas las operaciones sean ejecutadas correctamente.
+Entrega
+El grupo debe entregar el siguiente material:
+Un archivo comprimido (ZIP o RAR) que contenga:
+El código Python completo.
+Un documento de texto donde cada miembro del grupo explique brevemente su participación en la actividad y los conceptos clave aprendidos.
+
+Duración
+
+1 Jornada de Clases
+
+Ejecución grupal
