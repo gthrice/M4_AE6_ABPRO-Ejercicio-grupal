@@ -1,7 +1,8 @@
-Polera Blanca, 12, 12, M
+Polera Blanca, 12, 13, M
 Camiseta Azul, 15, 50, M
 Pantalón Negro, 25, 30, L
 Chaqueta Roja, 40, 20, S
 Zapatillas Deportivas, 60, 10, 42
 Gorra Blanca, 10, 100, Talla Única
 Poleron Amarillo, 25, 20, XL
+polera morada, 12, 1, L

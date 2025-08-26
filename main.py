@@ -86,13 +86,12 @@ def imprimir_inventario(products):
 def menu():
     print("\n--- Menú ---")
     print("1. Cargar inventario")
-    print("2. Guardar inventario")
-    print("3. Agregar producto (append)")
-    print("4. Buscar producto (por ID o nombre)")
-    print("5. Modificar producto (por ID)")
-    print("6. Eliminar producto (por ID)")
-    print("7. Hacer backup")
-    print("8. Mostrar info del archivo")
+    print("2. Agregar producto (append)")
+    print("3. Buscar producto (por ID o nombre)")
+    print("4. Modificar producto (por ID)")
+    print("5. Eliminar producto (por ID)")
+    print("6. Hacer backup")
+    print("7. Mostrar info del archivo")
     print("0. Salir")
 
 def main():
@@ -106,9 +105,6 @@ def main():
             print('\nInventario inicial:')
             imprimir_inventario(products)
         elif opcion == '2':
-            print('Guardando inventario (sobrescribe)...')
-            guardar_inventario(products)
-        elif opcion == '3':
             # Agregar en modo append directamente al archivo
             print('Agregando producto (append)...')
             nombre = input('Nombre: ')
@@ -122,7 +118,7 @@ def main():
             with open(INVENTARIO_FILE, 'a', encoding='utf-8') as f:
                 f.write(format_product(nuevo_producto))
             print('Producto agregado (append).')
-        elif opcion == '4':
+        elif opcion == '3':
             term = input('Ingrese ID o parte del nombre para buscar: ')
             products = cargar_inventario()
             results = []
@@ -136,55 +132,65 @@ def main():
             else:
                 for r in results:
                     print(product_str(r))
-        elif opcion == '5':
-            # Modificar nombre por ID
+        elif opcion == '4':
+            # Modificar producto por ID
             pid = input('ID del producto a modificar: ')
+            if not pid.isdigit():
+                print('ID inválido.')
+                continue
+            pid = int(pid)
             while True:
+                products = cargar_inventario()
+                p = next((x for x in products if x['id'] == pid), None)
+                if not p:
+                    print('Producto no encontrado.')
+                    break
+                print('Modificando el siguiente producto:', product_str(p))
                 print ("elija que caracteristica cambiar")
                 print ("1. nombre")
                 print ("2. precio")
                 print ("3. unidades")
                 print ("4. talla")
-                opcion = input('Seleccione una opción: ')
-                if opcion == '1':
+                print ("5. salir")
+                opcion_mod = input('Seleccione una opción: ')
+                if opcion_mod == '1':
                     nuevo_nombre = input('Nuevo nombre: ')
-                    products = cargar_inventario()
-                    for p in products:
-                        if p['id'] == pid:
-                            p['nombre'] = nuevo_nombre
+                    for prod in products:
+                        if prod['id'] == pid:
+                            prod['nombre'] = nuevo_nombre
                             break
                     guardar_inventario(products)
                     print('Nombre modificado y guardado.')
-                elif opcion == '2':
+                elif opcion_mod == '2':
                     nuevo_precio = input('Nuevo precio: ')
-                    products = cargar_inventario()
-                    for p in products:
-                        if p['id'] == pid:
-                            p['precio'] = nuevo_precio
+                    for prod in products:
+                        if prod['id'] == pid:
+                            prod['precio'] = nuevo_precio
                             break
                     guardar_inventario(products)
                     print('Precio modificado y guardado.')
-                elif opcion == '3':
+                elif opcion_mod == '3':
                     nuevas_unidades = input('Nuevas unidades: ')
-                    products = cargar_inventario()
-                    for p in products:
-                        if p['id'] == pid:
-                            p['unidades'] = nuevas_unidades
+                    for prod in products:
+                        if prod['id'] == pid:
+                            prod['unidades'] = nuevas_unidades
                             break
                     guardar_inventario(products)
                     print('Unidades modificadas y guardadas.')
-                elif opcion == '4':
+                elif opcion_mod == '4':
                     nueva_talla = input('Nueva talla: ')
-                    products = cargar_inventario()
-                    for p in products:
-                        if p['id'] == pid:
-                            p['talla'] = nueva_talla
+                    for prod in products:
+                        if prod['id'] == pid:
+                            prod['talla'] = nueva_talla
                             break
                     guardar_inventario(products)
                     print('Talla modificada y guardada.')
+                elif opcion_mod == '5':
+                    print('Saliendo de la modificación.')
+                    break
                 else:
                     print('Opción no válida.')
-        elif opcion == '6':
+        elif opcion == '5':
             pid = input('ID del producto a eliminar: ')
             if not pid.isdigit():
                 print('ID inválido.')
@@ -200,14 +206,14 @@ def main():
                     p['id'] = idx
                 guardar_inventario(new_list)
                 print('Producto eliminado y archivo actualizado.')
-        elif opcion == '7':
+        elif opcion == '6':
             print('Creando copia de seguridad...')
             dst = backup_inventario()
             if dst:
                 print('Copia creada en:', dst)
             else:
                 print('No existe el archivo a respaldar.')
-        elif opcion == '8':
+        elif opcion == '7':
             info = info_archivo()
             if not info:
                 print('Archivo no encontrado.')

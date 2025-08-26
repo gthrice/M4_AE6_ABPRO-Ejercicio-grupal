@@ -43,8 +43,6 @@ Gorra Blanca, 10 USD, 100 unidades, Talla Única
 - Incluye este archivo `README.md`, el código `main.py` y el archivo `inventario.txt` en el ZIP final.
 
 ## Autores
-- Completa aquí los nombres y aportes de los integrantes del grupo.
+- Felipe Burgos, Natalia Rodríguez y Nathalia Rojas
 
 ---
-
-Este proyecto cumple todos los requisitos del enunciado y está listo para ser presentado.
