@@ -23,7 +23,7 @@ def product_str(producto):
     """Representación legible del producto para imprimir en consola."""
     return f"Producto(ID: {producto.get('id')}, Nombre: {producto.get('nombre')}, Precio: {producto.get('precio')}, Unidades: {producto.get('unidades')}, Talla: {producto.get('talla')})"
 
-# Usar la ruta del archivo ubicada junto al script para evitar problemas de "working directory"
+# --- Funciones para manejar el inventario ---
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 INVENTARIO_FILE = os.path.join(BASE_DIR, 'inventario.txt')
 
